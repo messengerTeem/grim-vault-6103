@@ -11,7 +11,6 @@ def updateHistory(request,activeUserName):
     #get user object with name activeUserName
     activeUser=users.objects.get(name=activeUserName)
     #find messages for this user
-    #m=messages.objects.filter(reciver=recivers.objects.get(user=activeUser))
     m =messages1.objects.filter(reciver=activeUser)
     l=zip([mm.mes for mm in m],[mm.sender.name for mm in m])
     #send it back
