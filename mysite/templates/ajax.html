@@ -1,0 +1,53 @@
+{% load dajaxice_templatetags %}
+{% load staticfiles %}
+<html>
+  <head>
+    <title>My base template</title>
+    {% dajaxice_js_import %}
+    {% static "dajax/jquery.dajax.core.js" %}
+     
+  </head>
+  <script>  
+	function calculate(){
+		var a = document.getElementById("a");	
+		var b = document.getElementById("b");
+		valueA=a.getAttribute("value");
+		valueB=b.getAttribute("value");
+    		Dajaxice.messenger.multiply(Dajax.process,{'a':valueA,'b':valueB});
+	};
+	function calculate1(){
+   		Dajaxice.messenger.multiply(Dajax.process,{'a':$('#a').val(),'b':$('#b').val()})
+	}
+	function my_js_callback(data){
+		var a = document.getElementById("a");	
+		var b = document.getElementById("b");
+		alert(a.getAttribute("value"));
+    		alert(data.message);
+	};
+	function myCallback(data){
+    		alert(data.res);
+	};
+	function calc(data){
+		var a = document.getElementById("a");	
+		var b = document.getElementById("b");
+		valueA=a.getAttribute("value");
+		valueB=b.getAttribute("value");
+		Dajaxice.messenger.mult(myCallback,{'a':valueA,'b':valueB});
+	};
+	
+  </script>
+  <script src={% static "dajax/jquery.dajax.core.js" %} type="text/javascript" charset="utf-8">  </script>
+  <body>
+  	<img src="{% static "dajax/gerls1.jpeg" %}" alt="My image"/>
+	<p>hello</p>
+	<input onClick="my_js_callback();"/>
+	<input type="button" onclick="Dajaxice.messenger.sayhello(my_js_callback)" value="dajaxice">
+	
+	<input type="text" value="5" id="a"> x
+	<input type="text" value="6" id="b"> =
+	<input type="text" value="" id="result">
+	<button onclick="calculate();">dajax calculate</button>	
+	<button onclick="calc();">calc</button>
+	<button onclick="calculate1();">dajax calculate1</button>
+  </body>
+</html>

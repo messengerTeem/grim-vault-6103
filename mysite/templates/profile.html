@@ -1,0 +1,24 @@
+<html>
+<body>
+  <p>{{activeUserName}}</p>
+  <p>You have that messages</p>
+  {%for a in mess%}
+  <li>{{a.sender.name}} {{a.mes}} </li>
+  {%endfor%}
+  
+  <!--<a href={%url 'login'%}>reg</a>--!>
+  
+  <form action="/profile/" method="post">
+    <label for="user">user</label>
+    <input type="text" name="user" value="" id="user">
+    <label for="message">message:</label>
+    <input type="text" name="message" value="" id="message">
+    <input type="hidden" name="activeUserName" value="{{activeUserName}}">
+    {% csrf_token %}  
+    <input type="submit" value="sent" />
+    <!--<input type="hidden" name="next" value="reg">--!>
+ 
+      
+  </form>
+</body>
+</html>
