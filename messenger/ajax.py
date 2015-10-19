@@ -1,6 +1,5 @@
 from django.utils import simplejson
 from dajaxice.decorators import dajaxice_register
-from dajax.core import Dajax
 from messenger.models import *
 
 
