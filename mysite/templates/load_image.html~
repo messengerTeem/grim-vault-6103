@@ -1,0 +1,14 @@
+<html>
+<body>
+  <form action="/loadImage/" method="post" enctype="multipart/form-data">
+    <table>
+      {{form.as_table}}
+    </table>
+    <p>{{form.dfile.url}}</p>
+    {% csrf_token %}
+    <!--<input type ="file" name="img"/>--!>
+    <input type="submit" value="Submit"/>
+    
+  </form>
+</body>
+</html> 

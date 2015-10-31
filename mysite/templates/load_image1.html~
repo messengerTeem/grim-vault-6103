@@ -1,0 +1,36 @@
+<html>
+<body>
+<!--<img src="static '1.png'" >--!>
+<!--<img src="{{m.img.url}}" >--!>
+<table><tr>
+<td>
+<img src="{{url}}" >
+</td>
+<td>
+<img src="{{imgOrign}}" >
+</td>
+</tr>
+</table>
+<p>{{m.img.url}}</p>
+  {%if path%}
+	<img src="{{path}}" alr={{path}}>
+  {%endif%}
+	
+  <form action="/testFace/" method="post" enctype="multipart/form-data">
+    <table>
+      {{form.as_table}}
+    </table>
+    {%for i in form.files%}
+    <p>{{i.name}}</p>
+    {%endfor%}
+    {{form.path}}
+    {% csrf_token %}
+    <!--<input type ="file" name="img"/>--!>
+    <input type="submit" value="Submit"/>    
+  </form>
+  {%for i in outImg%}
+	<img src="{{i.0}}">
+	<img src="{{i.1}}">
+  {%endfor%}
+</body>
+</html> 

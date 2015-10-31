@@ -1,0 +1,5 @@
+Django==1.6.1
+django-dajaxice==0.6
+gunicorn==19.3.0
+dj-database-url==0.3.0
+
