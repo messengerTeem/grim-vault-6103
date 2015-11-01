@@ -1,6 +1,6 @@
 from django.shortcuts import render
 #from django.shortcuts import render
-from messenger.models import users,recivers,messages
+from messenger.models import users
  
 # Create your views here.
 #def testList(request):
@@ -11,7 +11,7 @@ def test(request):
 
 #def test(request):
 #    return render(request,'loginFail.html',{'next':request.path})
-
+'''
 def checkMess(request):
     activeUser=users.objects.get(name=request.POST['activeUserName'])
     if(activeUser==None):
@@ -33,7 +33,7 @@ def checkMess(request):
         
     m=messages.objects.filter(reciver=recivers.objects.get(user=activeUser))
     return render(request,'profile.html',{'mess':m,'activeUserName':activeUser.name})
-    
+'''    
 def login(request):
     text='authorization'
     if request.method=='POST':
