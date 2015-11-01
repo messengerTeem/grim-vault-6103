@@ -30,3 +30,8 @@ Pass: 123
 or 
 Login: Petrov
 Pass: 123
+############WORK##########
+html файлы лежат в grim-vault-6103/mysite/templates
+обработчики ajax в grim-vault-6103/messenger/ajax.py
+обработчики страниц в grim-vault-6103/messenger/view.py
+БД в grim-vault-6103/messenger/models.py
