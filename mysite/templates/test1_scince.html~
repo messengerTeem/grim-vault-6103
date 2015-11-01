@@ -1,8 +1,0 @@
-<html>
-<body>
-{%for i in scinces%}
-	<p> i </p>
-{%endfor%}
-</body>
-</html>
-
