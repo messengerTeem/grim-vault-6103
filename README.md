@@ -14,7 +14,7 @@ heroku: http://grim-vault-6103.herokuapp.com/login/
 когда вы подтвердите участие проект будет доступен для чтения/записи
 
 у себя делаете 
-git remote add someName https://github.com/messengerTeem/grim-vault-6103.git
+git remote add someName https://github.com/messengerTeem/grim-vault-6103.git \n
 git clone someName
 (ввести пароль)
 cd grim-vault-6103
