@@ -37,3 +37,10 @@ html файлы лежат в grim-vault-6103/mysite/templates
 обработчики ajax в grim-vault-6103/messenger/ajax.py
 обработчики страниц в grim-vault-6103/messenger/view.py
 БД в grim-vault-6103/messenger/models.py
+#######STATIC FILES#####
+для использования статических файлов поместить их в папку static/my_app
+(my_app создаете свою, но обязательно в static)
+затем в файле *.html пишите
+{% load staticfiles %}
+<img src="{% static "my_app/myexample.png" %}" alt="My image"/>
+Пример смотри в login.html
