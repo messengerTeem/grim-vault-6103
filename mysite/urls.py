@@ -25,6 +25,7 @@ urlpatterns = patterns('',
     url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
     url(r'^test/$', 'messenger.views.test'),
     #url(r'^testList/$', 'messenger.views.testList'),
+    #url(r'^$', include('mysite.cesar.urls')),
 )
 #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
