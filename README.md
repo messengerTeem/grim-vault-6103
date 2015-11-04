@@ -6,7 +6,8 @@ messanger for tenzor
 остальным писать в ветки fronted и backend
 
 github: https://github.com/messengerTeem/grim-vault-6103.git
-heroku: http://grim-vault-6103.herokuapp.com/login/
+heroku for master: http://grim-vault-6103.herokuapp.com/login/
+heroku for develop: http://gory-wizard-7830.herokuapp.com/login/
 ###########################INIT################################
 
 для подключения к git нужно заригестрироваться на github и прислать мне email
