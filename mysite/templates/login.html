@@ -1,9 +1,9 @@
 <html>
 <body>
   {% load staticfiles %}
-  <img src="/static/my_app/myexample.png" alt="test static files"/>
-  <img src="{% static "my_app/myexample.png" %}" alt="test static files 2"/>
 
+  <img src="{% static "my_app/myexample.png" %}" alt="test static files 2"/>
+  <p>"{% static "my_app/myexample.png" %}"</p>
   <p>{{text}}</p>
 
   <p>heroku for master</p>
