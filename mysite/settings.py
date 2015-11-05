@@ -31,7 +31,7 @@ SECRET_KEY = '$@m8s8l^i&jav@e-ymydl)dav(2adri)nnfmo$ei#+axvrg(0m'
 DEBUG = True
 
 TEMPLATE_DEBUG = True
-TEMPLATE_DIRS=(BASE_DIR+'\mysite\\templates',)
+TEMPLATE_DIRS=(BASE_DIR+'/mysite/templates',)
 # 06.10.2015
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
