@@ -1,10 +1,14 @@
 <html>
 <body>
+  {% load staticfiles %}
+
+  <img src="{% static "my_app/myexample.png" %}" alt="test static files 2"/>
+  <p>"{% static "my_app/myexample.png" %}"</p>
   <p>{{text}}</p>
-  <p>hello from github</p>
-  <p>now it autoupdate from organization</p>
-   <p>is it?</p>
-  
+
+  <p>heroku for develop</p>
+
+
   <form action="/login/" method="post">
     <label for="username">User name:</label>
     <input type="text" name="username" value="" id="username">
