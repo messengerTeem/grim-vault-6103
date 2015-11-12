@@ -44,3 +44,27 @@ html файлы лежат в grim-vault-6103/mysite/templates
 {% load staticfiles %}
 <img src="{% static "my_app/myexample.png" %}" alt="My image"/>
 Пример смотри в login.html
+----------------------------
+Если хотите запустить локально то делайте
+устанавливаем
+1)Python installed - see the installation guides for OS X, Windows and Linux
+2)Setuptools and Pip. See the Python install guides above for installation instructions.
+3)Virtualenv installed. Accomplish this by running pip install virtualenv 
+4)gunicorn 
+выполняем
+virtualenv venv
+Для windows
+venv\Scripts\activate.bat 
+Для linux
+source venv/bin/activate
+
+Заходим в папку, где manager.py и делаем
+pip install -r requirements.txt --allow-all-external
+
+запуск
+gunicorn mysite.wsgi
+
+для выхода из virtualenv набрать 
+deactivate
+для static files
+python manage.py collectstatic 
