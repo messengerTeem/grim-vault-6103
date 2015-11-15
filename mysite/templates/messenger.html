@@ -2,6 +2,11 @@
 <html>
   <head>
     <title>My base template</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	{% load staticfiles %}
+	<script src='{% static "js/script.js" %}'></script>
+	
+	<link rel="stylesheet" href='{% static "css/style.css" %}'>
     {% dajaxice_js_import %}     
   </head>
   <script>  	
@@ -67,6 +72,20 @@
 		//alert('testAlert');
 		
 	};
+	
+	//вывод всех пользователей
+	function callbackOnUsers(data){
+		for (var mm in data.m){
+			$("#spisokUsers").append('<li class="user">' + data.m[mm] + '</li>' );
+		}
+	};	
+	
+	//запрос на вывод всех пользователей
+	function showAllUsers(){
+		Dajaxice.messenger.showAllUsers(callbackOnUsers);
+	};
+	
+	showAllUsers();
 	//start autoupdate
 	timer();
   </script>
@@ -77,10 +96,11 @@
 	<input type="text"  id="reciver" value="Ivanov" onchange="reciverChange();"> <br>
 	<input type="text"  id="message" value="demoMes" onchange="messageChange();"> <br>
 	
-	<div id ="divMes" style="position:absolute;top:10px;left:400px;height:360px;width:560px;background-color:#777777">
-		messages| from <br>
+	<div id ="divMes" style="position:absolute;top:10px;left:400px;height:360px;width:560px;background-color:#777777"></div>
+	<div id = "allUsers">
+		<ul id="spisokUsers">
+		</ul>
 	</div>
 	<button onclick="send();">send</button><br>
-	<!--<button onclick="updateHistory();">testList</button>--!>
   </body>
 </html>
