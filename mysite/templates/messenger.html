@@ -1,98 +1,31 @@
 {% load dajaxice_templatetags %}
 <html>
-  <head>
+<head>
     <title>My base template</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	{% load staticfiles %}
+	{% dajaxice_js_import %}
 	<script src='{% static "js/script.js" %}'></script>
 	
 	<link rel="stylesheet" href='{% static "css/style.css" %}'>
-    {% dajaxice_js_import %}     
-  </head>
-  <script>  	
-  	//timer for autoupdate message's history
-  	function timer(){
-  		updateHistory();
-		setTimeout(" timer();",100);		
-	}
-	//for realtime update inboxe's
-  	var reciverGlobal = 0;
-  	var messageGlobal = 0;
-	var lengthMess = 0;
+       
+</head>
+<body>  
+	<!--activeUserName filled at sercer side while loading pages-->
+	<p id="currentUser">{{activeUserName}}</p><br>
 
-	//all callback functions used for retrive data from server
-	//insted sending all whole page we send only one callback function
-	function myCallback(data){
-		if (data.status!="done"){
-		alert(data.status);
-		}		
-	}
-	function send(event){
-		event.preventDefault();
-		//if user changing input value, use it.
-		//else use default
-
-		if(reciverGlobal!=0){
-			valReciver=reciverGlobal;
-		}else{
-			valReciver = "{{activeUserName}}";	
-		}
-		
-		valMessage = $("#message").val();
-
-		//call funtion sendMessage from /messenger/ajax.py
-		//take myCallback in request argument
-		//second parameter is dictinary with other argument's
-		Dajaxice.messenger.sendMessage(myCallback,{'activeUserName':'{{activeUserName}}','reciver':valReciver,'message':valMessage});
-	};
-	function myCallbackUpdateHistory(data){
-		if(data.m.length != lengthMess){
-			$("#allMess div").remove();
-			for (var mm in data.m){
-				$("#allMess").append('<div class="user">' + data.m[mm][1] + ':</div>' );
-				$("#allMess").append('<div class="mess">' + data.m[mm][0] + '</div>' );
-			}
-		}
-		lengthMess = data.m.length;
-	};
-	function updateHistory(){
-		Dajaxice.messenger.updateHistory(myCallbackUpdateHistory,{'activeUserName':"{{activeUserName}}"});
-	};
-	
-	//вывод всех пользователей
-	function callbackOnUsers(data){
-		for (var mm in data.m){
-			$("#spisokUsers").append('<li class="user">' + data.m[mm] + '</li>' );
-		}
-	};	
-	
-	//запрос на вывод всех пользователей
-	function showAllUsers(){
-		Dajaxice.messenger.showAllUsers(callbackOnUsers);
-	};
-	
-	showAllUsers();
-	
-	//запуск проверки новых сообщений
-	timer();
-	
-  </script>
-  <body>  
-  	<!--activeUserName filled at sercer side while loading pages-->
-  	<p>{{activeUserName}}</p><br>
-	
 	<div id = "allUsers">
 		<p>Кому написать:</p>
 		<ul id="spisokUsers">
 		</ul>
 	</div>
-	
+
 	<div id ="allMess" style="position:absolute;top:10px;left:400px;height:360px;width:560px;background-color:#777777"></div>
-	
+
 	<form action="" id="sendMess">
 		<!--onchange for update, when user change inputs fild's-->
 		<input type="text"  id="message" placeholder="Введите сообщение" required> <br>
 		<button type="submit">send</button>
 	</form>
-  </body>
+</body>
 </html>
