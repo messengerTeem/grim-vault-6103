@@ -16,16 +16,10 @@
 		setTimeout(" timer();",100);		
 	}
 	//for realtime update inboxe's
-  	var reciverGlobal=0;
-  	var messageGlobal=0;
-  	//next two functions for input's onchange() event 
-  	function reciverChange(){
-		reciverGlobal = document.getElementById("reciver").value;		
-	}
-	function messageChange(){
-		messageGlobal = document.getElementById("message").value;		
-    		//alert(data.res);
-	}
+  	var reciverGlobal = 0;
+  	var messageGlobal = 0;
+	var lengthMess = 0;
+
 	//all callback functions used for retrive data from server
 	//insted sending all whole page we send only one callback function
 	function myCallback(data){
@@ -33,44 +27,36 @@
 		alert(data.status);
 		}		
 	}
-	function send(){
+	function send(event){
+		event.preventDefault();
 		//if user changing input value, use it.
 		//else use default
+
 		if(reciverGlobal!=0){
 			valReciver=reciverGlobal;
 		}else{
-		valReciver = document.getElementById("reciver").value;	
+			valReciver = "{{activeUserName}}";	
 		}
-		if(messageGlobal!=0){
-			valMessage=messageGlobal;
-		}else{	
-		valMessage = document.getElementById("message").value;
-		}
-		//alert(valReciver);
-		//alert(valMessage);
+		
+		valMessage = $("#message").val();
+
 		//call funtion sendMessage from /messenger/ajax.py
 		//take myCallback in request argument
 		//second parameter is dictinary with other argument's
 		Dajaxice.messenger.sendMessage(myCallback,{'activeUserName':'{{activeUserName}}','reciver':valReciver,'message':valMessage});
 	};
 	function myCallbackUpdateHistory(data){
-		//all messages will fill div object
-		var d = document.getElementById("divMes");
-		//clearing for avoid dublicat's
-		d.innerHTML='messages| from <br>';
-		
-		for (var mm in data.m){
-		//writing messages one by one
-			d.innerHTML=d.innerHTML+data.m[mm][0]+'|'+data.m[mm][1]+'<br>';
+		if(data.m.length != lengthMess){
+			$("#allMess div").remove();
+			for (var mm in data.m){
+				$("#allMess").append('<div class="user">' + data.m[mm][1] + ':</div>' );
+				$("#allMess").append('<div class="mess">' + data.m[mm][0] + '</div>' );
+			}
 		}
-		
-		//alert(type(data.m));
-    		//alert(data.m[0][0]);
+		lengthMess = data.m.length;
 	};
 	function updateHistory(){
 		Dajaxice.messenger.updateHistory(myCallbackUpdateHistory,{'activeUserName':"{{activeUserName}}"});
-		//alert('testAlert');
-		
 	};
 	
 	//вывод всех пользователей
@@ -86,21 +72,27 @@
 	};
 	
 	showAllUsers();
-	//start autoupdate
+	
+	//запуск проверки новых сообщений
 	timer();
+	
   </script>
   <body>  
   	<!--activeUserName filled at sercer side while loading pages-->
   	<p>{{activeUserName}}</p><br>
-  	<!--onchange for update, when user change inputs fild's-->
-	<input type="text"  id="reciver" value="Ivanov" onchange="reciverChange();"> <br>
-	<input type="text"  id="message" value="demoMes" onchange="messageChange();"> <br>
 	
-	<div id ="divMes" style="position:absolute;top:10px;left:400px;height:360px;width:560px;background-color:#777777"></div>
 	<div id = "allUsers">
+		<p>Кому написать:</p>
 		<ul id="spisokUsers">
 		</ul>
 	</div>
-	<button onclick="send();">send</button><br>
+	
+	<div id ="allMess" style="position:absolute;top:10px;left:400px;height:360px;width:560px;background-color:#777777"></div>
+	
+	<form action="" id="sendMess">
+		<!--onchange for update, when user change inputs fild's-->
+		<input type="text"  id="message" placeholder="Введите сообщение" required> <br>
+		<button type="submit">send</button>
+	</form>
   </body>
 </html>

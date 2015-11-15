@@ -63,6 +63,10 @@ function updateHistory(){
 };
 $('document').ready(function(){
 	$('#spisokUsers').on('click', '.user', function(){
-		alert($(this).text());
+		reciverGlobal = $(this).text();
 	});
+	
+	$('#sendMess').on('submit', {
+		event: ''
+	}, send);
 });
