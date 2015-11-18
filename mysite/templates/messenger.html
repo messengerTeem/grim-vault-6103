@@ -2,8 +2,9 @@
 <!--Don't know if it need to add, but I tell that it is HTML5 -->
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title>My base template</title>
+<<<<<<< HEAD
     {% dajaxice_js_import %}
 	{% load staticfiles %}
 	<!--Activation Bootstrap styles-->
@@ -86,11 +87,32 @@
   	<!--onchange for update, when user change inputs fild's-->
 	<input type="text"  id="reciver" value="Ivanov" onchange="reciverChange();"> <br>
 	<input type="text"  id="message" value="demoMes" onchange="messageChange();"> <br>
+=======
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	{% load staticfiles %}
+	{% dajaxice_js_import %}
+	<script src='{% static "js/script.js" %}'></script>
+>>>>>>> refs/remotes/origin/master
 	
-	<div id ="divMes" style="position:absolute;top:10px;left:400px;height:360px;width:560px;background-color:#777777">
-		messages| from <br>
+	<link rel="stylesheet" href='{% static "css/style.css" %}'>
+       
+</head>
+<body>  
+	<!--activeUserName filled at sercer side while loading pages-->
+	<p id="currentUser">{{activeUserName}}</p><br>
+
+	<div id = "allUsers">
+		<p>Кому написать:</p>
+		<ul id="spisokUsers">
+		</ul>
 	</div>
-	<button onclick="send();">send</button><br>
-	<!--<button onclick="updateHistory();">testList</button>--!>
-  </body>
+
+	<div id ="allMess" style="position:absolute;top:10px;left:400px;height:360px;width:560px;background-color:#777777"></div>
+
+	<form action="" id="sendMess">
+		<!--onchange for update, when user change inputs fild's-->
+		<input type="text"  id="message" placeholder="Введите сообщение" required> <br>
+		<button type="submit">send</button>
+	</form>
+</body>
 </html>
