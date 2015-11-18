@@ -1,8 +1,13 @@
 {% load dajaxice_templatetags %}
+<!--Don't know if it need to add, but I tell that it is HTML5 -->
+<!DOCTYPE html>
 <html>
   <head>
     <title>My base template</title>
-    {% dajaxice_js_import %}     
+    {% dajaxice_js_import %}
+	<!--Activation Bootstrap styles-->
+	<link rel="stylesheet" href='{% static "css/bstrap.min.css" %}'>
+	<!--End Activation-->	
   </head>
   <script>  	
   	//timer for autoupdate message's history
@@ -70,8 +75,12 @@
 	//start autoupdate
 	timer();
   </script>
-  <body>  
-  	<!--activeUserName filled at sercer side while loading pages-->
+  <body>
+	<!--Activtion Bootstrap scripts -->
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="js/bstrap.min.js"></script>
+	<!--End of Activation-->
+  	<!--activeUserName filled at server side while loading pages-->
   	<p>{{activeUserName}}</p><br>
   	<!--onchange for update, when user change inputs fild's-->
 	<input type="text"  id="reciver" value="Ivanov" onchange="reciverChange();"> <br>
