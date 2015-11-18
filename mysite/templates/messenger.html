@@ -4,8 +4,11 @@
 <html>
 <head>
     <title>My base template</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     {% dajaxice_js_import %}
 	{% load staticfiles %}
+	<script src='{% static "js/script.js" %}'></script>
+	<link rel="stylesheet" href='{% static "css/style.css" %}'>
 	<!--Activation Bootstrap styles-->
 	<link rel="stylesheet" href='{% static "css/bstrap.min.css" %}'>
 	<!--End Activation-->	
