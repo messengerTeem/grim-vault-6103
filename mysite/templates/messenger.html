@@ -4,7 +4,6 @@
 <html>
 <head>
     <title>My base template</title>
-<<<<<<< HEAD
     {% dajaxice_js_import %}
 	{% load staticfiles %}
 	<!--Activation Bootstrap styles-->
@@ -77,27 +76,25 @@
 	//start autoupdate
 	timer();
   </script>
-  <body>
-	<!--Activtion Bootstrap scripts -->
-		<script src="http://code.jquery.com/jquery-latest.js"></script>
-		<script src="js/bstrap.min.js"></script>
-	<!--End of Activation-->
-  	<!--activeUserName filled at server side while loading pages-->
+  <!--
+	<body>
+  	<!--activeUserName filled at server side while loading pages--
   	<p>{{activeUserName}}</p><br>
-  	<!--onchange for update, when user change inputs fild's-->
+  	<!--onchange for update, when user change inputs fild's--
 	<input type="text"  id="reciver" value="Ivanov" onchange="reciverChange();"> <br>
 	<input type="text"  id="message" value="demoMes" onchange="messageChange();"> <br>
-=======
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	{% load staticfiles %}
 	{% dajaxice_js_import %}
 	<script src='{% static "js/script.js" %}'></script>
->>>>>>> refs/remotes/origin/master
 	
 	<link rel="stylesheet" href='{% static "css/style.css" %}'>
-       
-</head>
-<body>  
+     -->
+<body>
+	<!--Activtion Bootstrap scripts -->
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src="js/bstrap.min.js"></script>
+	<!--End of Activation-->
 	<!--activeUserName filled at sercer side while loading pages-->
 	<p id="currentUser">{{activeUserName}}</p><br>
 
