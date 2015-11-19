@@ -1,7 +1,9 @@
 //for realtime update inboxe's
-var reciverGlobal = 0;
+var reciverGlobal = $("#currentUser").text();
 var messageGlobal = 0;
 var lengthMess = 0;
+var currentUser = "";
+var message = "";
 
 //all callback functions used for retrive data from server
 //insted sending all whole page we send only one callback function
@@ -16,18 +18,13 @@ function send(event){
 	//if user changing input value, use it.
 	//else use default
 
-	if(reciverGlobal!=0){
-		valReciver=reciverGlobal;
-	}else{
-		valReciver = "{{activeUserName}}";	
-	}
-	
-	valMessage = $("#message").val();
+	currentUser = $("#currentUser").text();
+	message = $("#message").val();
 
 	//call funtion sendMessage from /messenger/ajax.py
 	//take myCallback in request argument
 	//second parameter is dictinary with other argument's
-	Dajaxice.messenger.sendMessage(myCallback,{'activeUserName':'{{activeUserName}}','reciver':valReciver,'message':valMessage});
+	Dajaxice.messenger.sendMessage(myCallback,{'activeUserName':currentUser,'reciver':reciverGlobal,'message':message});
 };
 
 function myCallbackUpdateHistory(data){
@@ -61,7 +58,7 @@ function showAllUsers(){
 //timer for autoupdate message's history
 function timer(){
 	updateHistory();
-	setTimeout(" timer();",100);		
+	setTimeout(" timer();",1000);		
 };
 
 
