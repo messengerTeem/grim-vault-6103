@@ -25,6 +25,10 @@ var Dajaxice = {
         return Dajaxice.call('messenger.updateHistory', 'POST', callback_function, argv, custom_settings);
     },
 
+	showAllUsers: function(callback_function, argv, custom_settings){
+        return Dajaxice.call('messenger.showAllUsers', 'POST', callback_function, argv, custom_settings);
+    },
+	
     mult: function(callback_function, argv, custom_settings){
         return Dajaxice.call('messenger.mult', 'POST', callback_function, argv, custom_settings);
     }
