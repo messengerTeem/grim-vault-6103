@@ -19,6 +19,7 @@ function send(event){
 	//else use default
 
 	currentUser = $("#currentUser").text();
+        alert(currentUser);
 	message = $("#message").val();
 
 	//call funtion sendMessage from /messenger/ajax.py
