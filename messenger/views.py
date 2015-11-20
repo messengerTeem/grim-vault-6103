@@ -2,15 +2,25 @@ from django.shortcuts import render
 from messenger.models import users,messages1
 from django.contrib.auth.models import User
 from django.contrib import auth
-
+from django.utils.datastructures import MultiValueDictKeyError
 # Create your views here.
 def logout(request):
     auth.logout(request)
     return render(request,"login.html",{'test':"login again?"})
 
 def registr(request):
+    '''This function get username, password, email and create
+    entry in django inner table User and in messenger table users
+    (latest use for changing message's purpose)
+    variabel text used for error messenge's
+    '''
     text="" #for error messanges
     if request.method=='POST':
+        #for buttom at login.html 
+        try:
+            request.POST['email']
+        except (MultiValueDictKeyError):
+            return render(request,'registration.html',{'text':text})
         userName = request.POST['username']
         email = request.POST['email']
         password = request.POST['password']
@@ -33,7 +43,6 @@ def registr(request):
                 #for Ivanov and Petrov only (it check if user's exist in messenger database and create it if not)
                 users.objects.get(name=userName)
             except (users.DoesNotExist):
-                #for Ivanov and Petrov only (it check if user's exist in messenger database and create it if not)
                 user1=users(name=userName)
                 user1.save()
 
@@ -45,9 +54,11 @@ def registr(request):
             user2 = auth.authenticate(username=userName,password=password)
             if (user2 is not None) and user2.is_active:
                 auth.login(request,user2)
+                #and send him in messenger.html
+                return render(request,'messenger.html',{'activeUserName':userName})
+            else:
+                text = "are you bot?"
 
-            #and send him in messenger.html
-            return render(request,'messenger.html',{'activeUserName':userName})
     #in any other case        
     return render(request,'registration.html',{'text':text})
 
@@ -74,34 +85,31 @@ def checkMess(request):
     return render(request,'profile.html',{'mess':m,'activeUserName':activeUser.name})
  
 def login(request):
+    '''This function check if user exist in django database and remember his cookies
+    (I hope so).
+    variable text for eror's messenge's 
+    '''
     text=''
     if request.method=='POST':
         userName = request.POST['username']
         password = request.POST['password']
+        print("userName=%s"%userName)
+        print("password=%s"%password)
         #if user alredy have acaunt we logout it
         #it return no error's in other case's
         auth.logout(request)
-        user=auth.authenticate(username=userName,password=password)
         
-        if (user is not None) and user.is_active:
+        #check if user exist
+        user=auth.authenticate(username=userName,password=password)
+        if (user is not None): 
+            if user.is_active:
                 auth.login(request,user)
                 return render(request,'messenger.html',{'activeUserName':userName})
-        else:
-            text="fail to login"
-        '''try:
-            user=User.objects.get(name=userName)
-            if user.password==password:
-                user.status=True
-                user.save()
-                print('status is:')
-                print(users.objects.get(name=request.POST['username']).status)
-                return render(request,'messenger.html',{'activeUserName':user.name})
             else:
-                text='Password incorect. Try again'
-                print(text)
-        except users.DoesNotExist:
-            text='user not exist. Try again'
-            print(text)'''
+                text="user.is_actinv=False"
+        else:
+            text="user is None"
+
     return render(request,'login.html',{'text':text})
             
             

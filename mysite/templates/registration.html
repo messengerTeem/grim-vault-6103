@@ -14,11 +14,11 @@
 
   <form action="/registration/" method="post">
     <label for="username">User name:</label>
-    <input type="text" name="username" value="" id="username">
+    <input type="text" name="username" value="" id="username"><br>
     <label for="password">Password:</label>
-    <input type="password" name="password" value="" id="password">
+    <input type="password" name="password" value="" id="password"><br>
     <label for="username">email:</label>
-    <input type="text" name="email" value="" id="email">
+    <input type="text" name="email" value="" id="email"><br>
     {% csrf_token %}  
     <input type="submit" value="sign up" /> 
       

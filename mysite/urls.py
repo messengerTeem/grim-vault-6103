@@ -11,12 +11,6 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-
-
-    #url(r'^login/$', login,name='reg',{'template_name':'login.html'}),
-    #url(r'^logout/$', logout,{'next_page':'login.html'}),
-    #url(r'^logout/reg', login,{'template_name':'login.html'}),
-    #url(r'^myTest', 'messenger.views.test'),
     
     url(r'^registration/$', 'messenger.views.registr'),
     url(r'^logout/$', 'messenger.views.logout'),
@@ -27,6 +21,7 @@ urlpatterns = patterns('',
     url(r'^test/$', 'messenger.views.test'),
     #url(r'^testList/$', 'messenger.views.testList'),
     #url(r'^$', include('mysite.cesar.urls')),
+    url(r'^$', 'messenger.views.login'),
 )
 #urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
