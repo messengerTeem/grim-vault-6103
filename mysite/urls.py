@@ -18,7 +18,8 @@ urlpatterns = patterns('',
     #url(r'^logout/reg', login,{'template_name':'login.html'}),
     #url(r'^myTest', 'messenger.views.test'),
     
-    #url(r'^logout/$', 'messenger.views.login',name='login'),
+    url(r'^registration/$', 'messenger.views.registr'),
+    url(r'^logout/$', 'messenger.views.logout'),
     url(r'^login/$', 'messenger.views.login'),
     url(r'^profile/$', 'messenger.views.checkMess'),
     #06.10.2015

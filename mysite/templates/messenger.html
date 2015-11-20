@@ -48,5 +48,10 @@
 		<input type="text"  id="message" placeholder="Введите сообщение" required> <br>
 		<button type="submit">send</button>
 	</form>
+	<!--for logout-->
+	<form action="/logout/" method="post">    	
+    	 {% csrf_token %}  
+    	 <input type="submit" value="logout" />
+	</form>	
 </body>
 </html>
