@@ -1,3 +1,48 @@
 #spisokUsers li{
 	cursor: pointer;
 }
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: rgb(197, 216, 197);
+}
+.backgr{
+    background-color: rgb(197, 216, 197);
+    height:25%;
+    border: 1px solid rgb(197, 216, 197);
+}
+.bordl{
+    border-left: 2px solid rgb(181,199,183);
+}
+.bordr{
+    border-right: 2px solid rgb(181,199,183);
+}
+.navbarh{
+    height: 25%;
+}
+.maxhprofile{
+    max-height: 55px;
+}
+.msgboard{
+    height: 100%;
+}
+.mainbgrnd{
+    background-color: rgb(226, 225, 197);
+    width: 100%;
+    min-height: 300px;
+    height: 1px;
+}
+.butt{
+    min-width: 100%;
+}

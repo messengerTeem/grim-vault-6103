@@ -10,7 +10,7 @@
 	<script src='{% static "js/script.js" %}'></script>
 	<link rel="stylesheet" href='{% static "css/style.css" %}'>
 	<!--Activation Bootstrap styles-->
-	<link rel="stylesheet" href='{% static "css/bstrap.min.css" %}'>
+	<link rel="stylesheet" href='{% static "css/bootstrap.css" %}'>
 	<!--End Activation-->	
   <!--
 	<body>
@@ -26,13 +26,115 @@
 	
 	<link rel="stylesheet" href='{% static "css/style.css" %}'>
      -->
-	<!--Activtion Bootstrap scripts -->
-		<script src="http://code.jquery.com/jquery-latest.js"></script>
-		<script src='{% static "js/bstrap.min.js" %}'></script>
-	<!--End of Activation-->
-
+	
 </head>
 <body>  
+<!--Description of Header-->
+      <div class="container-fluid backgr">
+              <nav class="navbar navbar-default navbar-static-top backgr navbarh"><!--Zadaem Navigation Bar-->
+                      <div class="row">
+                        <!--  <div class="clearfix visible-xs-block">-->
+                        <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 bordr"><!--Maschtabizatiya Left side v zavisimosty ot ustroystva-->
+                            <!--Begin of the left side-->                               
+                                <a class="navbar-brand maxhprofile navbar-left" href="#"><!--Picture of User-->
+                                    <img class="img-rounded" alt="Profile" src="img/logo.jpg" ></img>
+                                </a>
+                            <div class="navbar-right"><a class="btn" href="#"><img class="img-rounded" alt="Send" src="img/sms.jpg"></img>                                                         </a>
+                            </div>
+                        </div>
+                          <!--End of left side-->
+                          <div class="col-lg-8 col-md-8 col-sm-6 col-xs-6 backgr"><!--Maschtabizachiya Right side v zavisimosty ot ustroystva-->
+                              <button type="button" class="navbar-toggle navbar-right" 
+                                  data-toggle="collapse" data-target="#resp-menu"><!--Button that shows us hidden content-->
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                              <!--Begin of right side-->
+                            <div class="collapse navbar-collapse " id="resp-menu"><!--content of Button-->
+                                 <!--Allign all right-->
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><p class="navbar-text">
+                                        <a href="#" class="navbar-link">Add Friend</a></p></li>
+                                    <li><form action="/logout/" method="post">    	
+										{% csrf_token %}  
+											<input type="submit" value="logout" />
+										</form>
+									</li>
+                                    <li><p class="navbar-text">Signed in as 
+                                    <p id="currentUser">{{activeUserName}}</p></p></li>
+                                </ul>
+                            </div>
+                          </div>
+                      </div>
+            </nav>
+   <!--   </div> -->
+<!--Middle part of site-->
+	<!--<div class="container-fluid">-->
+		<div class="row main">
+            <!--Left side of middle part-->
+            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 bordr">
+                <div class="">
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <!-- TODO Connection with the sqldb-->
+						<div id = "allUsers"> <!--Mb problems occur-->
+                        <div class="panel-heading">Whom to write</div>
+								<ul id="spisokUsers">
+								</ul>
+							</div>
+
+                        <!-- Table -->
+                           <!-- <table class="table">
+                                <tr><th>Name</th><th>Nickname</th></tr>
+                                <tr><td>Serega</td><td>Petrov</td></tr>
+                            </table>-->
+                        </div>
+                </div>
+            </div>
+            <!--Right side of middle part-->
+			<div class="col-lg-8 col-md-8 col-sm-6 col-xs-6">
+                <div class="mainbgrnd mid">
+                    <div class="msgboard" id="allMess">
+                    </div>
+                </div>
+            </div>
+		</div>
+   <!-- </div>-->
+<!--Bottom part of site-->
+<!--<div class="container-fluid">-->
+    <!--<footer class="footer">-->
+        <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6"> <!--Side for future search function-->
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search for..."><!--Future Search for friends function-->
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="button">Go!</button> <!--Button for sending request-->
+                        </span>
+                    </div><!-- /input-group -->
+                </div>
+            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-6">
+			    <div class="input-group">
+					<form action="" id="sendMess"><!--Mb should put above div-->
+					<!--onchange for update, when user change inputs fild's-->
+                    <input type="text" id="message" class="form-control" aria-label="..." placeholder="Введите сообщение" required>
+                    <div class="input-group-btn">
+                        <button class="btn btn-default" type="submit">Send it!</button>
+                        <button class="btn btn-default" type="button">Apply photo</button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Smiles<span class="caret"></span></button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                            <li><a href="#">Maybe there will be smiles...</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#">Or not.</a></li>
+                        </ul>
+                    </div><!-- /btn-group -->
+					</form><!--Don't forget to close form-->
+                </div><!-- /input-group -->
+            </div>
+        </div>
+</div>
+        <!--</footer>-->
+<!--Old Version
 	<p id="currentUser">{{activeUserName}}</p><br>
 
 	<div id = "allUsers">
@@ -44,14 +146,22 @@
 	<div id ="allMess" style="position:absolute;top:10px;left:400px;height:360px;width:560px;background-color:#777777"></div>
 
 	<form action="" id="sendMess">
-		<!--onchange for update, when user change inputs fild's-->
+		<!--onchange for update, when user change inputs fild's--
 		<input type="text"  id="message" placeholder="Введите сообщение" required> <br>
 		<button type="submit">send</button>
 	</form>
-	<!--for logout-->
+	<!--for logout--
 	<form action="/logout/" method="post">    	
     	 {% csrf_token %}  
     	 <input type="submit" value="logout" />
 	</form>	
+	
+	
+	-->
+	
+	<!--Activtion Bootstrap scripts -->
+		<script src="http://code.jquery.com/jquery-latest.js"></script>
+		<script src='{% static "js/bootstrap.js" %}'></script>
+	<!--End of Activation-->
 </body>
 </html>
