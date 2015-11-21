@@ -1,22 +1,3 @@
-#spisokUsers li{
-	cursor: pointer;
-}
-/*html {
-  position: relative;
-  min-height: 100%;
-}
-body {
-  /* Margin bottom by footer height *
-  margin-bottom: 60px;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here *
-  height: 60px;
-  background-color: rgb(197, 216, 197);
-}*/
 .backgr{
     background-color: rgb(197, 216, 197);
     height:25%;
@@ -46,3 +27,23 @@ body {
 .butt{
     min-width: 100%;
 }
+
+#spisokUsers li{
+	cursor: pointer;
+}
+/*html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height *
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here *
+  height: 60px;
+  background-color: rgb(197, 216, 197);
+}*/
