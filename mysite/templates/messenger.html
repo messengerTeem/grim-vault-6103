@@ -124,6 +124,7 @@
 					<!--onchange for update, when user change inputs fild's-->
                     <input type="text" id="message" class="form-control" aria-label="..." placeholder="Введите сообщение" required>
                     <div class="input-group-btn">
+                    	{% csrf_token %}
                         <button class="btn btn-default" type="submit">Send it!</button>
                         <button class="btn btn-default" type="button">Apply photo</button>
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Smiles<span class="caret"></span></button>
