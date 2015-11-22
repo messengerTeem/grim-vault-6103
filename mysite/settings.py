@@ -115,3 +115,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'#'/mysite/static/'
 STATICFILES_DIRS = ( os.path.join(BASE_DIR,'mysite/static'), )
+
+CSRF_FAILURE_VIEW='messenger.views.csrf_failure'

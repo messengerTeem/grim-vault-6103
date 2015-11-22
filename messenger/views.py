@@ -4,6 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.utils.datastructures import MultiValueDictKeyError
 # Create your views here.
+def csrf_failure(request,reason=""):
+    return render(request,"login.html",{'test':"login again?"})
+
 def logout(request):
     auth.logout(request)
     return render(request,"login.html",{'test':"login again?"})
@@ -90,6 +93,11 @@ def login(request):
     variable text for eror's messenge's 
     '''
     text=''
+    if request.user.is_authenticated():
+        print("authenticated")
+    else:
+        print("not authenticated")
+
     if request.method=='POST':
         userName = request.POST['username']
         password = request.POST['password']
