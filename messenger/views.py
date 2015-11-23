@@ -95,6 +95,7 @@ def login(request):
     text=''
     if request.user.is_authenticated():
         print("authenticated")
+        return render(request,'messenger.html',{'activeUserName':request.user.username})
     else:
         print("not authenticated")
 
