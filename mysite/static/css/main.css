@@ -1,0 +1,86 @@
+*::-webkit-input-placeholder {
+	color: #666;
+	opacity: 1;
+}
+*:-moz-placeholder {
+	color: #666;
+	opacity: 1;
+}
+*::-moz-placeholder {
+	color: #666;
+	opacity: 1;
+}
+*:-ms-input-placeholder {
+	color: #666;
+	opacity: 1;
+}
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid {
+
+}
+body input:required:valid,
+body textarea:required:valid {
+
+}
+body {
+	font-family: "RobotoRegular", sans-serif;
+	font-size: 16px;
+}
+
+.row1   {
+	height: 100px;
+	background: #C5D7C7;
+
+}
+
+.row2 {
+	height: 550px;
+}
+
+.row2 .col-md-4 {
+	background: #FFFEDF;
+height: 550px;
+}
+
+.row2 .col-md-8 {
+	background: #E2E1C5;
+height: 550px;
+}
+
+
+
+.row3 {
+	height: 100px;
+	background: #C5D7C7;
+
+}
+
+.my_photo {
+	margin-top: 19px;
+	float: left;
+}
+
+.new_message {
+	margin: 19px 20px 0 0;
+	float: right;
+}
+
+.text_inf {
+	position: relative;
+	margin-top: 40px ;
+	margin-right: 20px;
+
+}
+
+.text_information {
+
+}
+
+.form-search {
+	padding-top: 30px;
+}
+
+.form-control {
+	margin-top: 10px;
+}

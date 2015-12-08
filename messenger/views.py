@@ -3,7 +3,20 @@ from messenger.models import users,messages1
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.utils.datastructures import MultiValueDictKeyError
+
+
 # Create your views here.
+
+def profile(request):
+    if request.user.is_authenticated():
+        user = User.objects.get(username=request.user.username)
+        return render(request,"profile.html",{'name':user.username,'email':user.email})
+        print "auth"
+    else:
+        print "no auth"
+        #print(dir(request.user))
+        return render(request,"profile.html",{'name':'null','email':'null'}) #
+
 def csrf_failure(request,reason=""):
     return render(request,"login.html",{'test':"login again?"})
 

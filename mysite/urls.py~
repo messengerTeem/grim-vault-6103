@@ -11,32 +11,20 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    url(r'^hello/$', 'mysite.views.home', name='home'),
-    # url(r'^blog/', include('blog.urls')),
-    url(r'^search_form/$', 'mysite.views.serch_form'),
-    url(r'^search/$', 'mysite.views.search'),
-    url(r'^admin/', include(admin.site.urls)),
-    url(r'^image/$', 'mysite.views.Image'),
-    url(r'^loadImage/$', 'mysite.views.loadImage'),
-    url(r'^loadFile/$', 'mysite.views.loadFile'),
-    url(r'^searchOut/$', 'mysite.views.searchOut'),
-    url(r'^forKnn/$', 'mysite.views.forKnn'),
-    url(r'^knnTrain/$', 'mysite.views.knnTrain'),
-    url(r'^testFace/$', 'mysite.views.testFace'),
-    url(r'^conform/$', 'mysite.views.conform'),
-
-    #url(r'^login/$', login,name='reg',{'template_name':'login.html'}),
-    #url(r'^logout/$', logout,{'next_page':'login.html'}),
-    #url(r'^logout/reg', login,{'template_name':'login.html'}),
-    #url(r'^myTest', 'messenger.views.test'),
     
-    url(r'^logout/$', 'messenger.views.login',name='login'),
+    url(r'^registration/$', 'messenger.views.registr'),
+    url(r'^profile/$', 'messenger.views.profile'),
+    url(r'^logout/$', 'messenger.views.logout'),
     url(r'^login/$', 'messenger.views.login'),
     url(r'^profile/$', 'messenger.views.checkMess'),
     #06.10.2015
     url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
     url(r'^test/$', 'messenger.views.test'),
     #url(r'^testList/$', 'messenger.views.testList'),
+    #url(r'^$', include('mysite.cesar.urls')),
+    url(r'^$', 'messenger.views.login'),
 )
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+#urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += staticfiles_urlpatterns()

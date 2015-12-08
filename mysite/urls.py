@@ -13,9 +13,10 @@ urlpatterns = patterns('',
     # Examples:
     
     url(r'^registration/$', 'messenger.views.registr'),
+    url(r'^profile/$', 'messenger.views.profile'),
     url(r'^logout/$', 'messenger.views.logout'),
     url(r'^login/$', 'messenger.views.login'),
-    url(r'^profile/$', 'messenger.views.checkMess'),
+    #url(r'^profile/$', 'messenger.views.checkMess'),
     #06.10.2015
     url(dajaxice_config.dajaxice_url, include('dajaxice.urls')),
     url(r'^test/$', 'messenger.views.test'),
