@@ -44,7 +44,7 @@ html файлы лежат в grim-vault-6103/mysite/templates
 {% load staticfiles %}
 <img src="{% static "my_app/myexample.png" %}" alt="My image"/>
 Пример смотри в login.html
-----------------------------
+--------------------------------------
 Если хотите запустить локально то делайте
 устанавливаем
 1)Python installed - see the installation guides for OS X, Windows and Linux
@@ -68,3 +68,4 @@ gunicorn mysite.wsgi
 deactivate
 для static files
 python manage.py collectstatic 
+

@@ -1,0 +1,32 @@
+body{
+	background-color: rgb(197, 216, 197);
+}
+.bordl{
+    border-left: 2px solid rgb(181,199,183);
+}
+.bordr{
+    border-right: 2px solid rgb(181,199,183);
+}
+.navbarh{
+    height: 25%;
+}
+.maxhprofile{
+    max-height: 55px;
+}
+.msgboard{
+    height: 100%;
+}
+.mainbgrnd{
+    background-color: rgb(226, 225, 197);
+    width: 100%;
+    min-height: 300px;
+    height: 1px;
+}
+.butt{
+    min-width: 100%;
+}
+
+#spisokUsers li{
+	cursor: pointer;
+}
+

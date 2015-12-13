@@ -1,24 +1,134 @@
-<html>
+<!DOCTYPE html>
+<!--[if lt IE 7]><html lang="ru" class="lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html lang="ru" class="lt-ie9 lt-ie8"><![endif]-->
+<!--[if IE 8]><html lang="ru" class="lt-ie9"><![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="ru">
+<!--<![endif]-->
+<head>
+	{% load staticfiles %}
+	{% load dajaxice_templatetags %}
+   	{% dajaxice_js_import %}
+	<meta charset="utf-8" />
+	<title>Messanger</title>
+	<meta name="description" content="" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!--<link rel="shortcut icon" href="favicon.png" />-->
+	<link rel="stylesheet" href='{% static "libs/bootstrap/bootstrap-grid-3.3.1.min.css" %}' />
+	<link rel="stylesheet" href='{% static "libs/font-awesome-4.2.0/css/font-awesome.min.css" %}' />
+	<link rel="stylesheet" href='{% static "libs/fancybox/jquery.fancybox.css" %}'/>
+	<link rel="stylesheet" href='{% static "libs/owl-carousel/owl.carousel.css" %}'/>
+	<link rel="stylesheet" href='{% static "libs/countdown/jquery.countdown.css" %}'/>
+	<link rel="stylesheet" href='{% static "css/fonts.css" %}'/>
+	<link rel="stylesheet" href='{% static "css/main.css" %}'/>
+	<link rel="stylesheet" href='{% static "css/media.css" %}'/>
+</head>
 <body>
-  <p>{{activeUserName}}</p>
-  <p>You have that messages</p>
-  {%for a in mess%}
-  <li>{{a.sender.name}} {{a.mes}} </li>
-  {%endfor%}
-  
-  <!--<a href={%url 'login'%}>reg</a>--!>
-  
-  <form action="/profile/" method="post">
-    <label for="user">user</label>
-    <input type="text" name="user" value="" id="user">
-    <label for="message">message:</label>
-    <input type="text" name="message" value="" id="message">
-    <input type="hidden" name="activeUserName" value="{{activeUserName}}">
-    {% csrf_token %}  
-    <input type="submit" value="sent" />
-    <!--<input type="hidden" name="next" value="reg">--!>
- 
-      
-  </form>
+
+
+
+
+<div class="container">
+		<div class="row1">
+			 <!-- шапка -->
+					<div class="col-md-4">
+						<!-- // левая часть шапки -->
+
+							<div class="my_photo"><a href="#">
+									<img src='{% static "img/my_photo.jpg" %}' class="img-rounded"></a>
+								</div>
+
+								<div class="new_message"><a href="#">
+									<img src='{% static "img/new_message.png" %}' class="img-rounded"></a>
+						  	</div>
+
+					</div>
+					<div class="col-md-8">
+						<!-- // правая часть шапки -->
+
+								<div class="my_photo"><a href="#">
+								<img src='{% static "img/my_photo.jpg" %}' class="img-rounded"></a>
+								</div>
+
+								<div class="text_inf">&nbsp; Мой профиль</div>
+
+				 </div>
+		</div>
+		<div class="row2">
+			 <!-- // Основная часть страницы -->
+					<div class="col-md-4">
+						<!-- // Основная часть страницы слева -->
+
+								<div class="my_photo"><a href="#">
+									<img src='{% static "img/my_photo.jpg" %}' class="img-rounded"></a>
+								</div>
+
+								<div class="text_inf">&nbsp; Моё имя</div>
+
+						</div>
+					<div class="col-md-8"> <!-- // Основная часть страницы справа -->
+
+
+								<div class="my_photo"><a href="#">
+									<img src='{% static "img/my_photo.jpg" %}' class="img-rounded"></a>
+								</div>
+
+									<div class="text_inf">&nbsp; Моё фото <a href="#">(<u>редактировать</u>)</a></div>
+
+												<div class="text_information">
+															<br>
+															<p>
+																<b>Моя информация</b> <a href="#">(<u>редактировать</u>)</a> <br><br>
+																Ник: {{name}}<br>
+																Имя:<br>
+																Город:<br>
+																E-mail: {{email}}<br>
+																<br>
+																<a href="#"><u>Изменить пароль</u></a>
+															</p>
+
+												</div>
+					 </div>
+		</div>
+
+		<div class="row3">
+			<!-- подвал -->
+			<div class="col-md-4">
+												<form class="form-search">
+														<input type="text" class="input-medium search-query">
+														<button type="submit" class="btn">Найти</button>
+												</form>
+				</div>
+			<div class="col-md-8">
+						<textarea class="form-control" rows="3" placeholder="Введите сообщение... Для отправки нажмите Enter." cols="70"  ></textarea>
+			  </div>
+		</div>
+	</div>
+
+
+
+
+
+	<!--[if lt IE 9]>
+	<script src='{% static "libs/html5shiv/es5-shim.min.js" %}'></script>
+	<script src='{% static "libs/html5shiv/html5shiv.min.js" %}'></script>
+	<script src='{% static "libs/html5shiv/html5shiv-printshiv.min.js" %}'></script>
+	<script src='{% static "libs/respond/respond.min.js" %}'></script>
+	<![endif]-->
+	<script src='{% static "libs/jquery/jquery-1.11.1.min.js" %}'></script>
+	<script src='{% static "libs/jquery-mousewheel/jquery.mousewheel.min.js" %}'></script>
+	<script src='{% static "libs/fancybox/jquery.fancybox.pack.js" %}'></script>
+	<script src='{% static "libs/waypoints/waypoints-1.6.2.min.js" %}'></script>
+	<script src='{% static "libs/scrollto/jquery.scrollTo.min.js" %}'></script>
+	<script src='{% static "libs/owl-carousel/owl.carousel.min.js" %}'></script>
+	<script src='{% static "libs/countdown/jquery.plugin.js" %}'></script>
+	<script src='{% static "libs/countdown/jquery.countdown.min.js" %}'></script>
+	<script src='{% static "libs/countdown/jquery.countdown-ru.js" %}'></script>
+	<script src='{% static "libs/landing-nav/navigation.js" %}'></script>
+	<script src='{% static "js/common.js" %}'></script>
+	<!-- Yandex.Metrika counter --><!-- /Yandex.Metrika counter -->
+	<!-- Google Analytics counter --><!-- /Google Analytics counter -->
 </body>
 </html>

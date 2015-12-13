@@ -37,7 +37,14 @@ def sendMessage(request,activeUserName,reciver,message):
             status='error: reciver not exist'
     return simplejson.dumps({'status':status})
 
-
+@dajaxice_register
+def showAllUsers(request):
+    m = users.objects.filter()
+    l = [mm.name for mm in m]
+    #send it back
+    return simplejson.dumps({'m':l})
+	
+	
 
 @dajaxice_register
 def mult(request,a,b):

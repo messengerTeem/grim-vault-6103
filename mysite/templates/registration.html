@@ -1,0 +1,27 @@
+<html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
+<body>
+  {% load staticfiles %}
+
+  <img src="{% static "img/myexample.png" %}" alt="test static files 2"/>
+  <p>"{% static "img/myexample.png" %}"</p>
+  <p>{{text}}</p>
+
+  <p>registration</p>
+
+
+  <form action="/registration/" method="post">
+    <label for="username">User name:</label>
+    <input type="text" name="username" value="" id="username"><br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" value="" id="password"><br>
+    <label for="username">email:</label>
+    <input type="text" name="email" value="" id="email"><br>
+    {% csrf_token %}  
+    <input type="submit" value="sign up" /> 
+      
+  </form>
+</body>
+</html>

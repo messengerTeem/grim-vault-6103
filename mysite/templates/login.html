@@ -1,9 +1,12 @@
 <html>
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+</head>
 <body>
   {% load staticfiles %}
 
-  <img src="{% static "my_app/myexample.png" %}" alt="test static files 2"/>
-  <p>"{% static "my_app/myexample.png" %}"</p>
+  <img src="{% static "img/myexample.png" %}" alt="test static files 2"/>
+  <p>"{% static "img/myexample.png" %}"</p>
   <p>{{text}}</p>
 
   <p>heroku for develop</p>
@@ -11,15 +14,20 @@
 
   <form action="/login/" method="post">
     <label for="username">User name:</label>
-    <input type="text" name="username" value="" id="username">
+    <input type="text" name="username" value="" id="username"><br>
     <label for="password">Password:</label>
-    <input type="password" name="password" value="" id="password">
+    <input type="password" name="password" value="" id="password"><br>
     {% csrf_token %}  
     <input type="submit" value="login" />
     <!--<input type="hidden" name="next" value="reg">-->
  
-      
-  </form>
+   </form>
+   <br>
+   <!--for registration-->
+   <form action="/registration/" method="post">    	
+    {% csrf_token %}  
+     <input type="submit" value="registration" />
+    </form>	
 </body>
 </html>
 
