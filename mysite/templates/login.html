@@ -35,12 +35,12 @@
 					<input id="password" value="" name="password" type="password" required placeholder="Пароль" class="input">
 				</div>
 				<div class="form-group">
+					{% csrf_token %}
+				</div>	
+				<div class="form-group">
 					<button type="submit" class="btn btn-default">Войти</button>
 					<a class="btn btn-default" href="/registration">Зарегистрироваться</a>
 				</div>
-				<div class="form-group">
-					{% csrf_token %}
-				</div>	
 			</form>
 		</div>
 	</div>	
