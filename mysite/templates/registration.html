@@ -1,27 +1,52 @@
+{% load dajaxice_templatetags %}
+<!DOCTYPE html>
 <html>
 <head>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	{% load staticfiles %}
+	{% dajaxice_js_import %}
+	<meta name="viewport" content="width=device-width, initial-scale=1" charset="utf-8">
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" href='{% static "css/style.css" %}'>
+
+	<link rel="stylesheet" href='{% static "css/bootstrap.css" %}'>
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href='{% static "css/bootstrap-theme.css" %}'>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src='{% static "js/bootstrap.js" %}'></script>
+	
+	<script src='{% static "js/script_reg.js" %}'></script>
+	
 </head>
-<body>
-  {% load staticfiles %}
-
-  <img src="{% static "img/myexample.png" %}" alt="test static files 2"/>
-  <p>"{% static "img/myexample.png" %}"</p>
-  <p>{{text}}</p>
-
-  <p>registration</p>
-
-
-  <form action="/registration/" method="post">
-    <label for="username">User name:</label>
-    <input type="text" name="username" value="" id="username"><br>
-    <label for="password">Password:</label>
-    <input type="password" name="password" value="" id="password"><br>
-    <label for="username">email:</label>
-    <input type="text" name="email" value="" id="email"><br>
-    {% csrf_token %}  
-    <input type="submit" value="sign up" /> 
-      
-  </form>
+<body id="wrapper">
+	{% load staticfiles %}
+	<div class="container">
+		<div class="row" style="margin-top: 15%;">
+			<h1>Chat All In One</h1>
+			<form action="/login/" method="post" >
+				<div class="form-group">
+					<input id="username" value="" name="username" type="text" required placeholder="Логин" class="input">
+				</div>
+				<div class="form-group">	
+					<input id="password" value="" name="password" type="password" required placeholder="Пароль" class="input">
+				</div>
+				<div class="form-group">	
+					<input id="email" value="" name="email" type="email" required placeholder="E-mail" class="input">
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-default">Зарегистрироваться</button>
+					<a class="btn btn-default" href="/login">Войти</a>
+				</div>
+				<div class="form-group">
+					{% csrf_token %}
+				</div>	
+			</form>
+		</div>
+	</div>	
 </body>
 </html>
+

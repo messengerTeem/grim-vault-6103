@@ -21,6 +21,43 @@ body{
     width: 100%;
     min-height: 300px;
     height: 1px;
+	overflow: scroll;
+}
+.butt{
+    min-width: 100%;
+}
+
+#spisokUsers li{
+	cursor: pointer;
+}
+ul.navbar-right form{
+	margin: 5px 14px 0 0;
+}
+.backgr{
+    background-color: rgb(197, 216, 197);
+    height:25%;
+    border: 1px solid rgb(197, 216, 197);
+}
+.bordl{
+    border-left: 2px solid rgb(181,199,183);
+}
+.bordr{
+    border-right: 2px solid rgb(181,199,183);
+}
+.navbarh{
+    height: 25%;
+}
+.maxhprofile{
+    max-height: 55px;
+}
+.msgboard{
+    height: 100%;
+}
+.mainbgrnd{
+    background-color: rgb(226, 225, 197);
+    width: 100%;
+    min-height: 300px;
+    height: 1px;
 }
 .butt{
     min-width: 100%;
@@ -30,3 +67,45 @@ body{
 	cursor: pointer;
 }
 
+#wrapper{
+	background: #c5d7c7 url(../img/shest.png) no-repeat fixed center;
+}
+
+.row form{
+ text-align:center;
+}
+.row h1{
+	text-align:center;
+	color: #63776b;
+}
+#greeting {
+	padding-top: 15%;
+	font-weight: bold;
+	padding-left: 620px;
+	font-size: 36px;
+	color: #63776b;
+}
+
+.input{
+	text-align: center;
+	font-style: italic;
+	box-sizing: border-box;
+	width: 350px;
+	height: 50px;
+	border-spacing: 2px;
+	background-color: #fffedf;
+}
+
+#form_buttons{
+	margin:auto 0;
+	font-size: 24px;
+	font-weight: bold;
+	color: #63776b;
+}
+
+#submit{
+  background: #fffedf;
+  text-align: center;
+  text-decoration: none;
+  margin-left: 110px;
+}

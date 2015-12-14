@@ -12,21 +12,7 @@
 	<link rel="stylesheet" href='{% static "css/bootstrap.css" %}'>
 	<!--End Activation-->
 	<link rel="stylesheet" href='{% static "css/style.css" %}'>
-  <!--
-	<body>
-  	<!--activeUserName filled at server side while loading pages--
-  	<p>{{activeUserName}}</p><br>
-  	<!--onchange for update, when user change inputs fild's--
-	<input type="text"  id="reciver" value="Ivanov" onchange="reciverChange();"> <br>
-	<input type="text"  id="message" value="demoMes" onchange="messageChange();"> <br>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	{% load staticfiles %}
-	{% dajaxice_js_import %}
-	<script src='{% static "js/script.js" %}'></script>
-	
-	<link rel="stylesheet" href='{% static "css/style.css" %}'>
-     -->
-	
+
 	<!--Activation Bootstrap scripts -->
 		<script src="http://code.jquery.com/jquery-latest.js"></script>
 		<script src='{% static "js/bootstrap.js" %}'></script>
@@ -41,9 +27,7 @@
                         <!--  <div class="clearfix visible-xs-block">-->
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6"><!--Maschtabizatiya Left side v zavisimosty ot ustroystva-->
                             <!--Begin of the left side-->                               
-                                <a class="navbar-brand maxhprofile navbar-left" href="/profile"><!--Picture of User-->
-                                    <img class="img-rounded" alt="Profile" src="img/logo.jpg" ></img>
-                                </a>
+                                <a class="navbar-brand maxhprofile navbar-left" href="/profile">Профиль</a>
                             <div class="navbar-right"><a class="btn" href="#"><img class="img-rounded" alt="Send" src='{% static "img/sms.jpg" %}'></img>                                                         </a>
                             </div>
                         </div>
@@ -59,15 +43,21 @@
                             <div class="collapse navbar-collapse " id="resp-menu"><!--content of Button-->
                                  <!--Allign all right-->
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li><p class="navbar-text">
-                                        <a href="#" class="navbar-link">Add Friend</a></p></li>
-                                    <li><form action="/logout/" method="post">    	
-										{% csrf_token %}  
-											<input type="submit" value="logout" />
-										</form>
+                                    <li>
+										<p class="navbar-text">
+											<a href="#" class="navbar-link">Добавить друга</a>
+										</p>
 									</li>
-                                    <li><p class="navbar-text">Signed in as 
-                                    <p id="currentUser">{{activeUserName}}</p></p></li>
+                                    <li>
+										<span class="navbar-text">Вы вошли как 
+											<span id="currentUser">{{activeUserName}}</span>
+										</span>
+									</li>
+                                    <li>
+										<form action="/logout/" method="post">    	
+											{% csrf_token %}  
+											<input type="submit" value="Выйти"  class="btn btn-default"/>
+										</form></li>
                                 </ul>
                             </div>
                           </div>
@@ -83,11 +73,10 @@
                     <div class="panel panel-default">
                         <!-- Default panel contents -->
                         <!-- TODO Connection with the sqldb-->
-						<div id = "allUsers"> <!--Mb problems occur-->
-                        <div class="panel-heading">Whom to write</div>
+						<div id = "allUsers">
 								<ul id="spisokUsers">
 								</ul>
-							</div>
+						</div>
 
                         <!-- Table -->
                            <!-- <table class="table">
@@ -112,9 +101,9 @@
         <div class="row">
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6"> <!--Side for future search function-->
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search for..."><!--Future Search for friends function-->
+                        <input type="text" class="form-control" placeholder="Найти друга"><!--Future Search for friends function-->
                         <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">Go!</button> <!--Button for sending request-->
+                            <button class="btn btn-default" type="button">Поиск</button> <!--Button for sending request-->
                         </span>
                     </div><!-- /input-group -->
                 </div>
@@ -125,9 +114,9 @@
                     <input type="text" id="message" class="form-control" aria-label="..." placeholder="Введите сообщение" required>
                     <div class="input-group-btn">
                     	{% csrf_token %}
-                        <button class="btn btn-default" type="submit">Send it!</button>
-                        <button class="btn btn-default" type="button">Apply photo</button>
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Smiles<span class="caret"></span></button>
+                        <button class="btn btn-default" type="submit">Отправить</button>
+                        <button class="btn btn-default" type="button">Добавить фото</button>
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Смайлы<span class="caret"></span></button>
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li><a href="#">Maybe there will be smiles...</a></li>
                             <li role="separator" class="divider"></li>
