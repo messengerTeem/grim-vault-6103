@@ -70,6 +70,8 @@ $('document').ready(function(){
 	
 	$('#spisokUsers').on('click', '.user', function(){
 		reciverGlobal = $(this).text();
+		$("#spisokUsers .user").css("background-color", "#fff");
+		$(this).css("background-color", "#777");
 	});
 	
 	$('#sendMess').on('submit', {
