@@ -1,8 +1,10 @@
 # grim-vault-6103
-<p>messanger for tenzor<p>
+```
+messanger for tenzor
+
 Данный проект синхронизирован с heroku
 если делаешь  push в master изменения автоматически передаются на heroku
-я предлогаю делать это только teemled-у 
+я предлогаю делать это только teemlead-у 
 остальным писать в ветки fronted и backend
 
 github: https://github.com/messengerTeem/grim-vault-6103.git
@@ -44,3 +46,4 @@ html файлы лежат в grim-vault-6103/mysite/templates
 {% load staticfiles %}
 <img src="{% static "my_app/myexample.png" %}" alt="My image"/>
 Пример смотри в login.html
+```
