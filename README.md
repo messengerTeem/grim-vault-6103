@@ -15,7 +15,7 @@ heroku for develop: http://gory-wizard-7830.herokuapp.com/login/
 или добавляйтесь сами в организацию messengerTeem
 когда вы подтвердите участие проект будет доступен для чтения/записи
 
-у себя делаете 
+у себя делаете \\
 git remote add someName https://github.com/messengerTeem/grim-vault-6103.git 
 git clone someName 
 (ввести пароль) 
